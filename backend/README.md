@@ -11,6 +11,8 @@ node server.js
 ```
 ### Database configuration
 ```
+ER diagram
+<p align="center"><img src="https://github.com/nurgi17/Test_task/blob/master/screenshots/Снимок%20экрана%202020-06-14%20в%2001.45.16.png"></p><br>
 DDL -> You should create only aomi database on MySQL
 
 ```
