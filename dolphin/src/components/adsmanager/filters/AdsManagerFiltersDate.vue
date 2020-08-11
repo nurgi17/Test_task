@@ -74,3 +74,11 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+.vue-daterange-picker {
+  .reportrange-text {
+    background: none;
+    border: none;
+  }
+}
+</style>

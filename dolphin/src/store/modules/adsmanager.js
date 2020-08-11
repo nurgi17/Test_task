@@ -20,8 +20,8 @@ export default {
       dates:
         localStorage.getItem('adsmanager-filters-dates') === null
           ? {
-            startDate: moment().format('YYYY-MM-DD'),
-            endDate: moment().format('YYYY-MM-DD'),
+            startDate: moment().startOf('year').format('MM/DD/YYYY'),
+            endDate: moment().endOf('year').format('MM/DD/YYYY'),
           }
           : JSON.parse(localStorage.getItem('adsmanager-filters-dates')),
     },
