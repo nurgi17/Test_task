@@ -27,12 +27,16 @@ export default {
     loading: {
       mainTable: false,
     },
-    stat: []
+    stat: [],
+    filters: {
+      name: '',
+      statuses: typeof localStorage.getItem('campaigns-filters-statuses') === 'undefined' ? [] : JSON.parse(localStorage.getItem('campaigns-filters-statuses')),
+    },
   },
   getters: {
     ...mixinDialogGetters,
-
     campaigns: state => state.campaigns,
+    filters: state => state.filters,
     selected: state => state.campaigns.selected,
     loading: state => state.loading,
     stat: state => state.stat,
@@ -60,6 +64,40 @@ export default {
 
     SET_FILTERED: (state, payload) => {
       state.campaigns.filtered = payload;
+    },
+    SET_FILTERS_NAME: (state, payload) => {
+      state.filters.name = payload;
+    },
+    FILTER_CAMPAIGNS (state) {
+      let campaigns = state.campaigns.all;
+      const filters = state.filters;
+
+      if (filters.name) {
+        if (filters.name.length > 0) {
+          campaigns = campaigns.filter(campaign => {
+            return (
+              campaign.name.toString().toLowerCase().search(filters.name.toLowerCase()) !== -1
+            );
+          });
+        }
+      }
+
+      if (filters.statuses && filters.statuses.length > 0) {
+        campaigns = campaigns.filter(function(campaign) {
+          return filters.statuses.indexOf(campaign.status) > -1;
+        });
+      }
+
+      if (this.state.adsmanager.filters.tags && this.state.adsmanager.filters.tags.length > 0) {
+        campaigns = campaigns.filter(campaign => {
+          return this.state.adsmanager.filters.tags.some(tag => {
+            if (!Array.isArray(campaign.tags)) return false;
+            return campaign.tags.indexOf(tag.toString()) > -1;
+          });
+        });
+      }
+      
+      state.campaigns.filtered = campaigns;
     },
   },
   actions: {
@@ -125,6 +163,11 @@ export default {
 
     async saveSelected(context, data) {
       context.commit('SET_SELECTED', data);
+    },
+
+    async setFiltersName(context, payload) {
+      context.commit('SET_FILTERS_NAME', payload);
+      context.commit('FILTER_CAMPAIGNS');
     },
 
     async clearSelected(context) {

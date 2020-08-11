@@ -10,7 +10,7 @@
     <!-- ЛЕВАЯ ЧАСТЬ -->
     <v-col
       :cols="12"
-      :sm="9"
+      :sm="8"
     >
       <topbar-actions />
       
@@ -171,19 +171,19 @@
     <!-- ПРАВАЯ ЧАСТЬ -->
     <v-col
       cols="12"
-      sm="3"
+      sm="4"
     >
       <v-row>
         <!-- ФИЛЬТР ПО ДАТЕ -->
         <v-col
           cols="12"
-          sm="12"
+          sm="6"
         >
           <filters-date />
         </v-col>
 
         <!-- ПОИСК ПО НАЗВАНИЮ -->
-        <!-- <v-col
+        <v-col
           cols="12"
           sm="6"
         >
@@ -198,7 +198,7 @@
             :value="filters.name"
             @input="filterName"
           />
-        </v-col> -->
+        </v-col>
       </v-row>
     </v-col>
   </v-row>
@@ -234,7 +234,7 @@ export default {
 
   computed: {
     ...mapGetters({
-      filters: 'cabs/filters',
+      filters: 'campaigns/filters',
       globalFilters: 'adsmanager/filters'
     }),
       
@@ -281,7 +281,8 @@ export default {
       this.nameSearchText = name;
       setTimeout(async () => {
         if (name === this.nameSearchText) {
-          await this.$store.dispatch('cabs/setSpecificFilter', {filter: 'name', data: name});
+          await this.$store.dispatch('campaigns/setFiltersName', name);
+          this.$store.dispatch('campaigns/loadStat');
         }  
       }, 500);
     },
