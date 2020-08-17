@@ -1,0 +1,7 @@
+### ACCOUNT 1:
+
+### header
+GET http://dev.mechta.kz/api/main/header/index.php
+Accept: application/json
+
+###

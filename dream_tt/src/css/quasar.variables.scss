@@ -1,0 +1,74 @@
+$primary: #EC0094;
+$secondary: #26A69A;
+$accent: #9C27B0;
+
+$dark: #1D1D1D;
+
+$positive: #21BA45;
+$negative: #C10015;
+$info: #31CCEC;
+$warning: #F2C037;
+
+$toolbar-min-height: 42px;
+
+$rating-shadow: none;
+
+$bg-color: #FFFFFF;
+
+$color1: #322F38;
+$color2: #332D40;
+$color3: #6A707C;
+$color4: #979797;
+$color5: #E3E2E7;
+$color6: #F7F7F7;
+$color7: #FFD400;
+$color8: #F0F0F0;
+$color9: #212121;
+$color10: #F0F0F4;
+$color11: #0075CD;
+$color12: #0F991B;
+$color13: #F44336;
+$color14: #d4d4d4;
+
+$colors: (
+        $color1,
+        $color2,
+        $color3,
+        $color4,
+        $color5,
+        $color6,
+        $color7,
+        $color8,
+        $color9,
+        $color10,
+        $color11,
+        $color12,
+        $color13,
+        $color14,
+);
+
+
+$typography-font-family: 'Tahoma', sans-serif;
+
+$body-font-size: 14px;
+$body-line-height: 16px;
+$input-font-size: 14px;
+$input-label-color: $color4 !default;
+
+$h4: (size: 1.4rem, line-height: 2rem, letter-spacing: .00735em, weight: 400) !default;
+
+$ts1: (size: 18px, line-height: 22px, letter-spacing: 0.02em);
+$ts2: (size: 12px, line-height: 16px, letter-spacing: 0.02em);
+$ts3: (size: 14px, line-height: 17px, letter-spacing: 0.02em);
+$ts5: (size: 24px, line-height: 29px, letter-spacing: 0.02em);
+$ts6: (size: 10px, line-height: 12px, letter-spacing: 0.02em);
+$ts7: (size: 16px, line-height: 19px, letter-spacing: 0.02em);
+
+$extra_headings: (
+        'ts1': $ts1,
+        'ts2': $ts2,
+        'ts3': $ts3,
+        'ts5': $ts5,
+        'ts6': $ts6,
+        'ts7': $ts7,
+);
