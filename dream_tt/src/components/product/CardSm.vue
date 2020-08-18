@@ -129,6 +129,11 @@
       <Compare :data="data.compare"/>
     </div>
 
+    <!-- Viewed products -->
+    <div v-if="data.viewed.products.length" class="q-px-md q-pt-lg">
+      <ViewedProducts :data="data.viewed.products"/>
+    </div>
+
     <!--map_addresses-->
     <div class="q-px-md q-pt-lg">
       <div class="q-pt-md"/>
@@ -178,6 +183,7 @@ import Specs from 'components/product/Specs'
 import Videos from 'components/product/Videos'
 import Reviews from 'components/product/Reviews'
 import Compare from 'components/product/Compare'
+import ViewedProducts from 'components/product/ViewedProducts'
 import MapAddresses from 'components/product/MapAddresses'
 import Register from 'components/product/Register'
 import About from 'components/product/About'
@@ -188,6 +194,7 @@ export default {
     Register,
     MapAddresses,
     Compare,
+    ViewedProducts,
     Reviews,
     Videos,
     Specs,

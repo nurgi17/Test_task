@@ -288,6 +288,29 @@ export function get (ctx, { id, params }) {
             },
           ],
         },
+        viewed: {
+          products: [
+            {
+              id: 1,
+              img: 'https://firebasestorage.googleapis.com/v0/b/soul-to-soul.appspot.com/o/test%2Fheadset.jpg?alt=media&token=98dfc1d4-d14a-40fc-bcc6-c25aa8714e3a',
+              name: 'Наушники Panasonic mdr 1...',
+              cost: 279999
+            },
+            {
+              id: 2,
+              img: 'https://firebasestorage.googleapis.com/v0/b/soul-to-soul.appspot.com/o/test%2Ftv.jpg?alt=media&token=f586a3df-8c37-49fc-89c4-0cfdf096d097',
+              name: 'Телевизор Led Kivi 24 HB 55”...',
+              oCost: 99999,
+              cost: 78989
+            },
+            {
+              id: 3,
+              img: 'https://firebasestorage.googleapis.com/v0/b/soul-to-soul.appspot.com/o/test%2Fprojector.jpg?alt=media&token=f1dc5f00-d12a-4073-aebc-6866fe6eec4c',
+              name: 'Проектор EPSON EB E05',
+              cost: 56970
+            }
+          ]
+        },
         locations: {
           shops: [
             { lon: 71.41868989322256, lat: 51.09662699437465 },
