@@ -16,7 +16,7 @@
     </q-toolbar>
 
     <q-toolbar class="row items-stretch q-pa-none">
-      <div class="col-6" @click="$emit('update:catalog', true)">
+      <div class="col-6" @click="$emit('update:catalog', show = !show)">
         <div class="fit row items-center justify-center q-gutter-x-sm bg-color5">
           <q-icon>
             <ac-icon-catalog style="width: 14px; height: 14px"/>
@@ -42,13 +42,45 @@
         </div>
       </div>
     </q-toolbar>
+
+    <q-drawer
+        v-model="show"
+        show-if-above
+        :width="350"
+        :breakpoint="700"
+        elevated
+        content-class="text-black"
+      >
+        <q-scroll-area class="fit">
+          <div class="q-pa-md" style="max-width: 340px">
+            <q-list>
+              <tree
+                v-for="mc in menu_catalog"
+                :key="mc.ID"
+                :name="mc.NAME"
+                :menus="mc.MENU"
+                :depth="0"
+              />
+            </q-list>
+          </div>
+        </q-scroll-area>
+      </q-drawer>
+
   </q-header>
 </template>
 
 <script>
 import DPhoneSelect from 'components/DPhoneSelect'
-
+import Tree from 'components/Tree'
 export default {
+  data () {
+    return {
+      show: this.catalog
+    }
+  },
+  components: {
+    Tree
+  },
   props: {
     cabinet: { type: Boolean },
     catalog: { type: Boolean },
@@ -57,6 +89,9 @@ export default {
     phones () {
       return this.$store.getters['app/phones']
     },
+    menu_catalog () {
+      return this.$store.getters['app/menu_catalog']
+    }
   },
   methods: {
     onPhoneClick () {

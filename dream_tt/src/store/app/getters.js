@@ -7,3 +7,7 @@ export function phones (state) {
 export function cities (state) {
   return _.sortBy(_.values(state.headerData.CITIES), 'NAME')
 }
+
+export function menu_catalog (state) {
+  return _.sortBy(_.values(state.headerData.MENU_CATALOG), 'NAME')
+}
